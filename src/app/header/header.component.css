@@ -1,0 +1,34 @@
+*{
+    color: #fff
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    background: #51a5fa;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+}
+
+span{
+    padding: 0 0.5rem;
+}
+
+li, ul, a{
+    height: 100%;
+}
+
+a{
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+a:hover{
+    background: #3494f3
+}
