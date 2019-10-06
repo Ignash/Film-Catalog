@@ -1,5 +1,9 @@
 :host{
     margin: 1rem;
+    transition: all 0.3s ease;
+}
+:host:hover{ 
+    transform: scale(1.03)
 }
 
 header{
@@ -25,4 +29,12 @@ section>p{
 }
 .item{
     box-shadow: 0rem 0rem 0.5rem #cccccc;
+}
+
+footer{
+    padding: 0 1rem 0.5rem;
+}
+
+.gold{
+    color: #FFD700;
 }

@@ -1,5 +1,30 @@
+header{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 0.5rem 0;
+}
+
 article{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-left: 0.5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #8c8b8b;
+  }
+  select:hover{
+      color: #000;
+  }
+  
+  select::-ms-expand {
+    display: none;
+  }

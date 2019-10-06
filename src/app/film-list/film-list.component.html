@@ -1,5 +1,10 @@
 <header>
-
+    <span>Сортировка:</span>
+    <select [(ngModel)]="sort"  (ngModelChange)="setSortFilms($event)" > 
+        <option [ngValue]="null" hidden>Выберите сортировку</option>
+        <option [ngValue]="undefind" hidden>Выберите сортировку</option>
+        <option [ngValue]="i" *ngFor="let sortValue of sortListValues; let i=index">{{sortValue}}</option>
+    </select>
 </header>
 <article>
     <app-film-item *ngFor="let film of films" [filmItem]=film></app-film-item>

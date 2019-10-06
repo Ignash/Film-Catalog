@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { FilmListComponent } from './film-list/film-list.component'
 import { FilmItemComponent } from './film-list/film-item/film-item.component'
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
