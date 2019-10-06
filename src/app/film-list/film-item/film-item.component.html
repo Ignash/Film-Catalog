@@ -5,6 +5,6 @@
     </header>
     <section>
         <img src="{{filmItem.imgUrl}}">
-        <p>{{filmItem.description}}</p>
+        <p class="description">{{filmItem.description | slice:0:130}}...</p>
     </section>
 </section>

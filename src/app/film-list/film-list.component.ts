@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FilmsService } from '../films.service'
-import { Film } from '../../film'
+import { Film } from '../film'
+import { FilmsService } from '../films.service';
+
 @Component({
   selector: 'app-film-list',
   templateUrl: './film-list.component.html',
@@ -8,12 +9,12 @@ import { Film } from '../../film'
 })
 export class FilmListComponent implements OnInit {
 
-  films: Film[];
+  films: any;
 
   constructor(private filmService: FilmsService) { }
 
   ngOnInit() {
-    this.films = this.filmService.getFilms()
+    this.filmService.getFilms().subscribe((data)=> this.films = data)
   }
 
 }

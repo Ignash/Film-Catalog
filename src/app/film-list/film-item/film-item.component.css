@@ -1,3 +1,7 @@
+:host{
+    margin: 1rem;
+}
+
 header{
     height: 3rem;
     padding: 0.5rem;
@@ -12,16 +16,13 @@ header>h3{
 }
 
 section>p{
-    height: 5rem;
-    margin: 0.5rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    height: 6rem;
+    padding: 0.5rem 1rem;
 }
 
 .item, section>img{
     width: 20rem;
 }
 .item{
-    box-shadow: 0.2rem 0.2rem 0.5rem #cccccc;
+    box-shadow: 0rem 0rem 0.5rem #cccccc;
 }

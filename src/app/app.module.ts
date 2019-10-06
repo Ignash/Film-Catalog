@@ -4,16 +4,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FilmCatalogComponent } from './film-catalog/film-catalog.component';
-import { MainComponent } from './film-catalog/main/main.component';
-import { FilmListComponent } from './film-catalog/film-list/film-list.component';
-import { FilmItemComponent } from './film-catalog/film-list/film-item/film-item.component';
-
+import { MainComponent } from './main/main.component';
+import { FilmListComponent } from './film-list/film-list.component'
+import { FilmItemComponent } from './film-list/film-item/film-item.component'
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FilmCatalogComponent,
     MainComponent,
     FilmListComponent,
     FilmItemComponent
@@ -21,7 +19,8 @@ import { FilmItemComponent } from './film-catalog/film-list/film-item/film-item.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
