@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { createServer } = require('http');
 const app = express();
 const port = 3000;
- const cors = require('cors');
+const cors = require('cors');
 
  app.use(cors())
 
@@ -47,8 +47,14 @@ const FilmsSchema = new mongoose.Schema({
 
 const Films = mongoose.model('Films', FilmsSchema);
 
-app.get('/films', (req, res) => {
-    Films.find()
+
+
+app.get('/films/page/:id', (req, res) => {
+    let number_requests = +req.params.id;
+    let number_films_response = 3;
+    let index_film_response = number_requests === 1 ? 0 : ((number_requests - 1)*number_films_response);
+    
+    Films.find().skip(index_film_response).limit(number_films_response)
     .then(film => res.send(film))
     .catch(err => res.send(err));
 });

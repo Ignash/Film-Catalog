@@ -8,6 +8,6 @@
         <p class="description">{{filmItem.description | slice:0:130}}...</p>
     </section>
     <footer>
-        <span class="material-icons star">star</span>
+        <button class="material-icons" [ngClass]="{'favourite': filmItem.chosen}" (click)="chooseFavorite(filmItem.id)">star</button>
     </footer>
 </section>

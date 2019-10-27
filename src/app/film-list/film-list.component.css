@@ -4,6 +4,42 @@ header{
     padding: 0.5rem 0.5rem 0;
 }
 
+header ul{
+  display: flex; 
+  align-items: center;
+  height: 1.8rem;
+}
+
+header ul li:first-child{
+  display: flex; margin-right: 2rem;
+}
+
+header ul li:first-child input{
+  padding: 0 0.2rem;
+  /* border: 2px solid #4ba0fa; */
+  border: none;
+  height: 1.5rem;
+}
+
+header ul li:first-child{
+  background-color: #4ba0fa;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12.2rem;
+    border-radius: 0.1rem;
+}
+
+header ul li:first-child button{
+  color: white;
+  margin-left: 0.1rem;
+}
+
+header ul li:first-child button:hover{
+  transform: scale(0.8)
+}
+
 article{
     display: flex;
     flex-wrap: wrap;
@@ -28,3 +64,28 @@ select {
   select::-ms-expand {
     display: none;
   }
+
+  .favourite {
+      color: #FFD700
+  }
+
+  footer button {
+    font-size: 1.5rem;
+    background: #4ba0fa;
+    padding: 0.5rem;
+    color: white;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  footer button:hover{
+    background: #3494f3;
+  }
+
+  footer button.allFilms:hover{
+    background: #4ba0fa;
+  }
+
+  
+
+  

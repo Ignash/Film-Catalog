@@ -11,11 +11,15 @@ export class FilmListComponent implements OnInit {
   sortListValues = ['A - Z', 'Z - A'];
   sort: string;
   films: any;
+  pageFilms: number;
+  allFilms: boolean;
 
   constructor(private filmService: FilmsService) { }
 
   ngOnInit() {
-    this.filmService.getFilms().subscribe((data)=> this.films = data);
+    this.pageFilms = 1;
+    this.allFilms = false;
+    this.filmService.getFilms(this.pageFilms).subscribe((data)=> this.films = data);
     console.log(this.sort);
   }
 
@@ -32,7 +36,7 @@ export class FilmListComponent implements OnInit {
       // console.log(this.films.map(item => item.name))
     };
     if (sort === 1) {
-      this.films = this.films.sort((a: Film,b: Film) => {
+      this.films = this.films.sort((a: Film, b: Film) => {
         let result;
         if (a.name > b.name) result = -1;
         if (a.name < b.name) result = 1;
@@ -42,4 +46,13 @@ export class FilmListComponent implements OnInit {
       // console.log(this.films.map(item => item.name))
     };
   };
+
+  addFilms(): void{
+    this.pageFilms++;
+    this.filmService.getFilms(this.pageFilms).subscribe((data: []) => {
+      this.films = [...this.films, ...data];
+      console.log(data)
+      if (data.length === 0 || data.length < 3) this.allFilms = true;
+    });
+  }
 }

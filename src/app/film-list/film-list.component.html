@@ -1,13 +1,25 @@
 <header>
-    <span>Сортировка:</span>
-    <select [(ngModel)]="sort"  (ngModelChange)="setSortFilms($event)" > 
-        <option [ngValue]="null" hidden>Выберите сортировку</option>
-        <option [ngValue]="undefind" hidden>Выберите сортировку</option>
-        <option [ngValue]="i" *ngFor="let sortValue of sortListValues; let i=index">{{sortValue}}</option>
-    </select>
+    <ul>
+        <li>
+            <input type="text">
+            <button class="material-icons">search</button>
+        </li>
+        <li>
+            <span>Сортировка:</span>
+            <select [(ngModel)]="sort"  (ngModelChange)="setSortFilms($event)" > 
+                <option [ngValue]="null" hidden>Выберите сортировку</option>
+                <option [ngValue]="undefind" hidden>Выберите сортировку</option>
+                <option [ngValue]="i" *ngFor="let sortValue of sortListValues; let i=index">{{sortValue}}</option>
+            </select>
+        </li>
+    </ul>
+    
 </header>
 <article>
     <app-film-item *ngFor="let film of films" [filmItem]=film></app-film-item>
 </article>
+<footer>
+    <button *ngIf="!allFilms"  (click)="addFilms()">Загрузить еще</button>
+</footer>
 
 
