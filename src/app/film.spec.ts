@@ -1,4 +1,4 @@
-import { Film } from './film';
+import { Film } from './model/film';
 
 describe('Film', () => {
   it('should create an instance', () => {

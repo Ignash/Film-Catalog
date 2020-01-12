@@ -19,7 +19,16 @@
     <app-film-item *ngFor="let film of films" [filmItem]=film></app-film-item>
 </article>
 <footer>
-    <button *ngIf="!allFilms"  (click)="addFilms()">Загрузить еще</button>
+    
+    <button *ngIf="!allFilms"  (click)="addFilms()">
+        <div *ngIf="loading" class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <span>Загрузить еще</span>
+    </button>
 </footer>
 
 

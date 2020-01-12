@@ -1,13 +1,16 @@
 <section class="item">
     <header>
         <img src="../../../../assets/movies.png">
-        <h3>{{filmItem.name}}</h3>
+        <h3>{{filmItem.title}}<br>({{ filmItem.original_title }})</h3>
     </header>
     <section>
-        <img src="{{filmItem.imgUrl}}">
-        <p class="description">{{filmItem.description | slice:0:130}}...</p>
+        <figure>
+            <img src="{{urlImg}}">
+            <figcaption>{{filmItem.overview | slice:0:130}}...</figcaption>
+        </figure>
+        <!-- <p class="description">{{filmItem.overview | slice:0:130}}...</p> -->
     </section>
     <footer>
-        <button class="material-icons" [ngClass]="{'favourite': filmItem.chosen}" (click)="chooseFavorite(filmItem.id)">star</button>
+        <!-- <button class="material-icons" [ngClass]="{'favourite': filmItem.chosen}" (click)="chooseFavorite(filmItem.id)">star</button> -->
     </footer>
 </section>

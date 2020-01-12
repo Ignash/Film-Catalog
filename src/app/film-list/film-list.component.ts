@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Film } from '../film'
+import { Film } from '../model/film'
 import { FilmsService } from '../films.service';
+import { delay } from 'rxjs/operators'
 
 @Component({
   selector: 'app-film-list',
@@ -10,16 +11,26 @@ import { FilmsService } from '../films.service';
 export class FilmListComponent implements OnInit {
   sortListValues = ['A - Z', 'Z - A'];
   sort: string;
-  films: any;
-  pageFilms: number;
+  films: Array<Film>;
+  initial_numberFilms: number;
   allFilms: boolean;
+  numberFilmsCollection: number;
+  loading: boolean = false;
 
   constructor(private filmService: FilmsService) { }
 
   ngOnInit() {
-    this.pageFilms = 1;
+    this.initial_numberFilms = 10;
     this.allFilms = false;
-    this.filmService.getFilms(this.pageFilms).subscribe((data)=> this.films = data);
+    this.filmService.getNumberFilmsColection().subscribe((data: number) => {
+      this.numberFilmsCollection = +data;
+    })
+
+    this.filmService.getFilms(this.initial_numberFilms)
+    .subscribe((data: Array<Film>) => {
+      this.films = data
+      console.log(this.films)
+    });
     console.log(this.sort);
   }
 
@@ -28,9 +39,9 @@ export class FilmListComponent implements OnInit {
     if (sort === 0) {
       this.films = this.films.sort((a: Film,b: Film) => {
         let result: number;
-        if (a.name > b.name) result = 1;
-        if (a.name < b.name) result = -1;
-        if (a.name === b.name) result = 0;
+        if (a.title > b.title) result = 1;
+        if (a.title < b.title) result = -1;
+        if (a.title === b.title) result = 0;
         return result;
       });
       // console.log(this.films.map(item => item.name))
@@ -38,9 +49,9 @@ export class FilmListComponent implements OnInit {
     if (sort === 1) {
       this.films = this.films.sort((a: Film, b: Film) => {
         let result;
-        if (a.name > b.name) result = -1;
-        if (a.name < b.name) result = 1;
-        if (a.name === b.name) result = 0;
+        if (a.title > b.title) result = -1;
+        if (a.title < b.title) result = 1;
+        if (a.title === b.title) result = 0;
         return result;
       });
       // console.log(this.films.map(item => item.name))
@@ -48,11 +59,13 @@ export class FilmListComponent implements OnInit {
   };
 
   addFilms(): void{
-    this.pageFilms++;
-    this.filmService.getFilms(this.pageFilms).subscribe((data: []) => {
+    this.loading = true;
+    this.filmService.getFilms(this.initial_numberFilms)
+    .subscribe((data: Array<Film>) => {
       this.films = [...this.films, ...data];
-      console.log(data)
-      if (data.length === 0 || data.length < 3) this.allFilms = true;
+      this.loading = false;
+      if(this.films.length === this.numberFilmsCollection) this.allFilms = true;
+      console.log(this.films)
     });
   }
 }

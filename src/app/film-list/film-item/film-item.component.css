@@ -1,32 +1,47 @@
 :host{
+    width: 20rem;
     margin: 1rem;
     transition: all 0.3s ease;
 }
 :host:hover{ 
     transform: scale(1.03)
 }
+section{
+    width: inherit;
+}
 
 header{
     height: 3rem;
-    padding: 0.5rem;
+    padding: 0.3rem 0.5rem 0.5rem;;
     display: flex;
-    align-items: center
+    align-items: center;
+    font-size: 1rem;
 }
 header>img{
     width: 2rem;
 }
 header>h3{
     padding: 0.5rem 0 0 0.5rem;
+    font-size: inherit;
 }
 
-section>p{
-    height: 6rem;
+
+
+figure{
+    width: inherit;
+}
+
+figure>img{
+    width: inherit;
+}
+figcaption{
+    height: 7rem;
     padding: 0.5rem 1rem;
+    font-size: 1rem;
 }
 
-.item, section>img{
-    width: 20rem;
-}
+
+
 .item{
     box-shadow: 0rem 0rem 0.5rem #cccccc;
 }

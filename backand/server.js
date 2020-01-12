@@ -4,8 +4,10 @@ const { createServer } = require('http');
 const app = express();
 const port = 3000;
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
  app.use(cors())
+ app.use(bodyParser.json())
 
 mongoose.connect('mongodb://yander:yander@cluster0-shard-00-00-ekjj1.mongodb.net:27017,cluster0-shard-00-01-ekjj1.mongodb.net:27017,cluster0-shard-00-02-ekjj1.mongodb.net:27017/FilmCatalog?ssl=true&replicaSet=cluster0-shard-0&authSource=admin&retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -17,47 +19,40 @@ mongoose.connect('mongodb://yander:yander@cluster0-shard-00-00-ekjj1.mongodb.net
 .then(()=> console.log('MongoDb, connected'))
 .catch(err => console.log(err));
 
-const FilmsSchema = new mongoose.Schema({
-        id: {
-            type: 'Number',
-            require: true
-        },
-        name: {
-            type: 'String',
-            require: true
-        },
-        year: {
-            type: 'String',
-            require: true
-        },
-        imgUrl: {
-            type: 'String',
-            require: true
-        },
-        description:{
-            type: 'String',
-            require: true
-        },
-        chosen:{
-            type: 'Boolean',
-            require: true
-        }
+
+const Films = require('./models/Film');
+
+// app.get('/films', (req, res) => {
+//     // Users.create({
+//     //   name: 'Denis',
+//     //   email: 'test@test.com',
+//     // })
+//     //   .then(user => res.send(user))
+//     //   .catch(err => res.send(err));
+//     Films.find()
+//       .then(films => res.send(films))
+//       .catch(err => res.send(err));
+//   });
+
+app.get('/films', (req, res) => {
+    if(req.query.hasOwnProperty('count')){
+        Films.countDocuments({})
+        .then(numberFilms => res.send(`${numberFilms}`))
+        .catch(err => res.send(err));
+    } else {
+
+        const startindex = +req.query.startindex;
+        const numberFilms = +req.query.numberFilms;
+        console.log(req.query)
+        
+        Films.find().skip(startindex).limit(numberFilms)
+        .then(film => res.send(film))
+        .catch(err => res.send(err));
     }
-);
 
-const Films = mongoose.model('Films', FilmsSchema);
-
-
-
-app.get('/films/page/:id', (req, res) => {
-    let number_requests = +req.params.id;
-    let number_films_response = 3;
-    let index_film_response = number_requests === 1 ? 0 : ((number_requests - 1)*number_films_response);
-    
-    Films.find().skip(index_film_response).limit(number_films_response)
-    .then(film => res.send(film))
-    .catch(err => res.send(err));
 });
+
+
 
 const server = createServer(app);
 server.listen(port, () => console.log(`server is up port: ${port}`));
