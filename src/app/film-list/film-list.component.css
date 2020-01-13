@@ -43,7 +43,7 @@ header ul li:first-child button:hover{
 article{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 select {
@@ -91,17 +91,15 @@ select {
 
   .lds-ellipsis {
     display: inline-block;
-    position: absolute;
+    position: relative;
     width: 80px;
     height: 1rem;
-    top: 1rem;
-    left: 37rem;
   }
   .lds-ellipsis div {
     position: absolute;
     top: 0;
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: #fff;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);

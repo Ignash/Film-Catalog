@@ -43,7 +43,6 @@ app.get('/films', (req, res) => {
 
         const startindex = +req.query.startindex;
         const numberFilms = +req.query.numberFilms;
-        console.log(req.query)
         
         Films.find().skip(startindex).limit(numberFilms)
         .then(film => res.send(film))
@@ -51,6 +50,14 @@ app.get('/films', (req, res) => {
     }
 
 });
+
+const Genre = require('./models/Genre');
+
+app.get('/films/genre/:id', (req, res) => {
+    Genre.find({id: +req.params.id})
+    .then((genre) => res.send(genre))
+    .catch(err => res.send(err));
+})
 
 
 

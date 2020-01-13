@@ -21,13 +21,15 @@
 <footer>
     
     <button *ngIf="!allFilms"  (click)="addFilms()">
-        <div *ngIf="loading" class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <span>Загрузить еще</span>
+        <span *ngIf="!loading; else loadingBlock">Загрузить еще</span>
+        <ng-template #loadingBlock>
+            <div  class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </ng-template>
     </button>
 </footer>
 

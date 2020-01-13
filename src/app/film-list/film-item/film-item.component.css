@@ -1,18 +1,28 @@
+
+
 :host{
-    width: 20rem;
-    margin: 1rem;
+    width: var(--width-item);
+    margin: 0.8rem 0;
     transition: all 0.3s ease;
 }
 :host:hover{ 
-    transform: scale(1.03)
+    /* transform: scale(1.05) */
 }
+:host:hover p{
+    display: block;
+}
+p{
+    display: none;
+}
+
 section{
     width: inherit;
+    background-color: white;
 }
 
 header{
-    height: 3rem;
-    padding: 0.3rem 0.5rem 0.5rem;;
+    /* height: 4.5rem; */
+    padding: 0.3rem;
     display: flex;
     align-items: center;
     font-size: 1rem;
@@ -21,7 +31,7 @@ header>img{
     width: 2rem;
 }
 header>h3{
-    padding: 0.5rem 0 0 0.5rem;
+    padding-left: 0.5rem;
     font-size: inherit;
 }
 
@@ -32,9 +42,16 @@ figure{
 }
 
 figure>img{
-    width: inherit;
+    width: var(--width-item);
+    height: calc((var(--width-item) / 2) * 3);
 }
 figcaption{
+    padding: 0.2rem 1rem;
+    font-size: 0.85rem;
+    color: #8a8a8a;
+}
+
+p{
     height: 7rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;

@@ -20,7 +20,7 @@ export class FilmsService {
   constructor(private http: HttpClient) { }
 
   getFilms(numberFilms: number){
-    let startindex: number = this.request_number ? this.request_number*numberFilms : 1;
+    let startindex: number = this.request_number ? this.request_number*numberFilms : 0;
     this.request_number++;
 
     return this.http.get(`${this.url}?startindex=${startindex}&numberFilms=${numberFilms}`);
@@ -28,5 +28,9 @@ export class FilmsService {
 
   getNumberFilmsColection(){
     return this.http.get(`${this.url}?count`)
+  }
+
+  getGenre(id){
+    return this.http.get(`${this.url}/genre/${id}`)
   }
 }

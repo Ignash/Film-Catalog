@@ -1,5 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
+:root{
+    --width-item: 22rem;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -23,4 +28,5 @@ button {
     outline: none;
     background-color: transparent;
     cursor: pointer;
-  }
+}
+
