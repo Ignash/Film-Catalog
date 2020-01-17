@@ -1,11 +1,11 @@
 export class Film {
-    id: Number;
-    title: String;
-    original_title: String;
-    poster_path: String;
-    overview: String;
-    release_date: String;
-    genre_ids: [String]
+    id: number;
+    title: string;
+    original_title: string;
+    poster_path: string;
+    overview: string;
+    release_date: string;
+    genre_ids: [string]
 
     constructor() {}
 }

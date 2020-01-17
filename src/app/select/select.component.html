@@ -1,0 +1,10 @@
+<div class="placeholder">
+    <input type="checkbox" name="selectedValue" id="selectedValue" (change)='show()'>
+    <label for="selectedValue">{{ selectedValue }}</label>
+</div>
+<div #list class="list" [ngClass]="{'show': showList}" [ngStyle]="{'width': widthItem}">
+    <div class="list-item" *ngFor="let selectValue of selectListValue.slice(1); let i=index">
+        <input type="radio" name="select" value="{{ selectValue }}" id="{{ selectValue }}" (change)='changeValueSelect($event)'>
+        <label for="{{ selectValue }}">{{ selectValue }}</label>
+    </div>
+</div>

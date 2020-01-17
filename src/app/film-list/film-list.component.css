@@ -6,19 +6,24 @@ header{
 
 header ul{
   display: flex; 
-  align-items: center;
   height: 1.8rem;
 }
 
 header ul li:first-child{
-  display: flex; margin-right: 2rem;
+  display: flex; 
+  margin-right: 2rem;
+}
+.sort{
+  display: flex; 
+  margin-left: 0.5rem;
 }
 
 header ul li:first-child input{
-  padding: 0 0.2rem;
-  /* border: 2px solid #4ba0fa; */
+  margin-left: 0.25rem;
   border: none;
   height: 1.5rem;
+  text-indent: 0.3rem;
+  line-height: 1.5rem;
 }
 
 header ul li:first-child{
@@ -27,7 +32,6 @@ header ul li:first-child{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 12.2rem;
     border-radius: 0.1rem;
 }
 
@@ -56,94 +60,103 @@ select {
     cursor: pointer;
     font-size: 0.9rem;
     color: #8c8b8b;
+    
   }
-  select:hover{
-      color: #000;
-  }
-  
-  select::-ms-expand {
-    display: none;
-  }
+select:hover{
+    color: #000;
+}
 
-  .favourite {
-      color: #FFD700
-  }
+select::-ms-expand {
+  display: none;
+}
 
-  footer button {
-    font-size: 1.5rem;
-    background: #4ba0fa;
-    padding: 0.5rem;
-    color: white;
-    width: 100%;
-    margin-bottom: 1rem;
-    position: relative;
-  }
+option{
+  color: red;
+  padding-left: 1rem;
+}
 
-  footer button:hover{
-    background: #3494f3;
-  }
+.favourite {
+    color: #FFD700
+}
+footer{
+  margin-top: 0.5rem;
+}
 
-  footer button.allFilms:hover{
-    background: #4ba0fa;
-  }
+footer button {
+  font-size: 1.5rem;
+  background: #4ba0fa;
+  padding: 0.5rem;
+  color: white;
+  width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+footer button:hover{
+  background: #3494f3;
+}
+
+footer button.allFilms:hover{
+  background: #4ba0fa;
+}
 
 
 
-  .lds-ellipsis {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 1rem;
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 1rem;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
   }
-  .lds-ellipsis div {
-    position: absolute;
-    top: 0;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #fff;
-    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  100% {
+    transform: scale(1);
   }
-  .lds-ellipsis div:nth-child(1) {
-    left: 8px;
-    animation: lds-ellipsis1 0.6s infinite;
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
   }
-  .lds-ellipsis div:nth-child(2) {
-    left: 8px;
-    animation: lds-ellipsis2 0.6s infinite;
+  100% {
+    transform: scale(0);
   }
-  .lds-ellipsis div:nth-child(3) {
-    left: 32px;
-    animation: lds-ellipsis2 0.6s infinite;
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
   }
-  .lds-ellipsis div:nth-child(4) {
-    left: 56px;
-    animation: lds-ellipsis3 0.6s infinite;
+  100% {
+    transform: translate(24px, 0);
   }
-  @keyframes lds-ellipsis1 {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes lds-ellipsis3 {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(0);
-    }
-  }
-  @keyframes lds-ellipsis2 {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(24px, 0);
-    }
-  }
+}
 
   
 

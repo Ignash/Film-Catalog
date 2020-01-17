@@ -1,20 +1,17 @@
 <header>
     <ul>
         <li>
-            <input type="text">
-            <button class="material-icons">search</button>
+            <input type="text" [(ngModel)]="search" (ngModelChange)="setSearchFilms()" (keydown.enter)="setSearchFilms()">
+            <button class="material-icons" (click)="setSearchFilms()">search</button>
         </li>
-        <li>
+        <li class="sort">
             <span>Сортировка:</span>
-            <select [(ngModel)]="sort"  (ngModelChange)="setSortFilms($event)" > 
-                <option [ngValue]="null" hidden>Выберите сортировку</option>
-                <option [ngValue]="undefind" hidden>Выберите сортировку</option>
-                <option [ngValue]="i" *ngFor="let sortValue of sortListValues; let i=index">{{sortValue}}</option>
-            </select>
+            <custom-select (changeValue)="setSortFilms($event)"  [selectListValue]="sortListValues" ></custom-select>
         </li>
     </ul>
     
 </header>
+
 <article>
     <app-film-item *ngFor="let film of films" [filmItem]=film></app-film-item>
 </article>

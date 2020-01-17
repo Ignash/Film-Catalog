@@ -1,0 +1,44 @@
+:host{
+    z-index: 10;
+    width: 10.5rem;
+    margin-left: 1mm;
+    position: relative;
+    
+}
+
+input{
+    display: none;
+}
+
+.placeholder, .placeholder>label{
+    cursor: pointer;
+}
+.placeholder>label{
+    display: inline-block;
+    width: 100%;
+}
+.show{
+    height: auto !important;
+}
+
+.list{
+    position: absolute;
+    z-index: 5;
+    height: 0;
+    overflow: hidden;
+    transition: all 1s ease-in ;
+}
+
+.list-item>label{
+    padding: 0.2rem 0.5rem;
+    background-color: #73B6FB;
+    transition: all 0.3s ease-in ;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+}
+.list-item>label:hover{
+    background-color: #238AF6;
+    color: white;
+    margin-left: 1rem;
+}

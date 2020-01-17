@@ -9,13 +9,15 @@ import { FilmListComponent } from './film-list/film-list.component'
 import { FilmItemComponent } from './film-list/film-item/film-item.component'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SelectComponent } from './select/select.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainComponent,
     FilmListComponent,
-    FilmItemComponent
+    FilmItemComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

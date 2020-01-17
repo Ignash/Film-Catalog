@@ -3,21 +3,37 @@
 :host{
     width: var(--width-item);
     margin: 0.8rem 0;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
+    position: relative;
+    box-shadow: 0rem 0rem 0.5rem #cccccc;
+    
 }
 :host:hover{ 
-    /* transform: scale(1.05) */
+    transform: scale(1.03);
+    z-index: 5;
 }
 :host:hover p{
-    display: block;
+    bottom: 0;
+    background-color:#ffffffe3;
+}
+:host:hover header{
+    opacity: 0.6;
 }
 p{
-    display: none;
+    bottom: -10rem;
+    position: absolute;
+    background-color: transparent;
+    transition: all 0.5s ease;
+    height: 7rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
 }
 
 section{
     width: inherit;
     background-color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 header{
@@ -26,6 +42,13 @@ header{
     display: flex;
     align-items: center;
     font-size: 1rem;
+    position: absolute;
+    z-index: 2;
+    background-color: white;
+    width: calc(100% - 0.6rem);
+    transition: all 0.5s ease;
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
 }
 header>img{
     width: 2rem;
@@ -46,25 +69,16 @@ figure>img{
     height: calc((var(--width-item) / 2) * 3);
 }
 figcaption{
-    padding: 0.2rem 1rem;
+    padding: 0.5rem 1rem;
     font-size: 0.85rem;
     color: #8a8a8a;
+    position: relative;
+    z-index: 5;
 }
 
-p{
-    height: 7rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-}
-
-
-
-.item{
-    box-shadow: 0rem 0rem 0.5rem #cccccc;
-}
 
 footer{
-    padding: 0 1rem 0.5rem;
+    /* padding:  0 1rem 0.5rem; */
 }
 
 .favourite{
