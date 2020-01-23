@@ -29,6 +29,10 @@ p{
     font-size: 1rem;
 }
 
+header:hover{
+    opacity: 1;
+}
+
 section{
     width: inherit;
     background-color: white;
@@ -52,6 +56,7 @@ header{
 }
 header>img{
     width: 2rem;
+    
 }
 header>h3{
     padding-left: 0.5rem;
@@ -67,6 +72,7 @@ figure{
 figure>img{
     width: var(--width-item);
     height: calc((var(--width-item) / 2) * 3);
+    cursor: pointer;
 }
 figcaption{
     padding: 0.5rem 1rem;

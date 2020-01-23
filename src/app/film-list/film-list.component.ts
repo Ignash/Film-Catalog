@@ -27,9 +27,10 @@ export class FilmListComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.initial_numberFilms = 10;
-    this.allFilms = false;
+    this.loading = true;
     this.filmService.getNumberFilmsColection().subscribe((data: number) => {
       this.numberFilmsCollection = +data;
+      this.loading = false;
     })
 
     this.filmService.getFilms(this.initial_numberFilms)

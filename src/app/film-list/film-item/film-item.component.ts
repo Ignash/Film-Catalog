@@ -20,7 +20,7 @@ export class FilmItemComponent implements OnInit {
 
   ngOnInit() {
     this.urlImg = this.filmsService.smallBackPath + this.filmItem.poster_path;
-      this.filmsService.getGenre(this.filmItem.genre_ids[0])
+      this.filmsService.getGenre(+this.filmItem.genre_ids[0])
       .pipe(
         map((genre: any) => {
           return genre[0].name

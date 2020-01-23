@@ -5,7 +5,9 @@
     </header>
     <section>
         <figure>
-            <img src="{{urlImg}}">
+            <a [routerLink]="['/films', filmItem.id]">
+                <img src="{{urlImg}}">
+            </a>
             <figcaption>{{filmItem.release_date | slice:0:4}}, {{ genres.join(', ') }}</figcaption>
         </figure>
         <p class="description">{{filmItem.overview | slice:0:130}}...</p>

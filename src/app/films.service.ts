@@ -8,7 +8,10 @@ import { Film } from './model/film'
 export class FilmsService {
   films: Film[];
   request_number: number = 0;
-  url: string = 'http://localhost:3000/films'
+  url: string = 'http://localhost:3000/films';
+
+  urlYouTube: string = 'https://www.googleapis.com/youtube/v3/search';
+  keyYouTube: string = 'AIzaSyAyUiLB7w2DTK0ZVzxOblctbAXRiCnFKFQ';
 
   imgPath: string = 'https://image.tmdb.org/t/p'
   midImgPath: string = `${this.imgPath}/w500`
@@ -30,7 +33,22 @@ export class FilmsService {
     return this.http.get(`${this.url}?count`)
   }
 
-  getGenre(id){
+  getGenre(id: number){
     return this.http.get(`${this.url}/genre/${id}`)
   }
+
+  getFilmById(id: number){
+    return this.http.get(`${this.url}/${id}`)
+  }
+
+  searchYouTubeVideo(text: string) {
+    return this.http.get(`${this.urlYouTube}?q=${text + ' Trailer'}&key=${this.keyYouTube}&maxResults=1&part=snippet&type=video`)
+    
+  }
+
+  getPersons(idFilm: number){
+    return this.http.get(`${this.url}/${idFilm}/persons`)
+  }
+
+
 }

@@ -22,18 +22,6 @@ mongoose.connect('mongodb://yander:yander@cluster0-shard-00-00-ekjj1.mongodb.net
 
 const Films = require('./models/Film');
 
-// app.get('/films', (req, res) => {
-//     // Users.create({
-//     //   name: 'Denis',
-//     //   email: 'test@test.com',
-//     // })
-//     //   .then(user => res.send(user))
-//     //   .catch(err => res.send(err));
-//     Films.find()
-//       .then(films => res.send(films))
-//       .catch(err => res.send(err));
-//   });
-
 app.get('/films', (req, res) => {
     if(req.query.hasOwnProperty('count')){
         Films.countDocuments({})
@@ -58,6 +46,19 @@ app.get('/films/genre/:id', (req, res) => {
     .then((genre) => res.send(genre))
     .catch(err => res.send(err));
 })
+
+app.get('/films/:id', (req, res) => {
+    Films.find({ id: +req.params.id })
+    .then((film) => {res.send(film)})
+    .catch(err => res.send(err));
+});
+
+const Сredits = require('./models/Сredits')
+app.get('/films/:id/persons', (req, res) => {
+    Сredits.find({ id: +req.params.id })
+    .then((Сredits) => {res.send(Сredits)})
+    .catch(err => res.send(err));
+});
 
 
 

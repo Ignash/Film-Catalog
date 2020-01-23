@@ -1,0 +1,28 @@
+<article>
+    <header>
+        <h2 *ngIf="filmData">{{ filmData.title }}</h2>
+        <p *ngIf="filmData">{{ filmData.original_title }}  <em>(original title)</em></p>
+        <p *ngIf="filmData"> {{ genres.join(', ') }} | {{ filmData.release_date | date: 'd MMMM yyyy' }}</p>
+    </header>
+    <section>
+        <figure>
+            <img *ngIf="urlSmallImg" height="450" width="300" [src]="urlSmallImg" >
+            <iframe *ngIf="urlVideo" width="830" height="450" [src]="urlVideo" allowfullscreen frameborder="0"></iframe>
+            <figcaption *ngIf="filmData">{{ filmData.overview }}</figcaption>
+        </figure>
+        <p>Режисер:
+            <span *ngFor="let person of ditector; let i=index">
+            {{person.name}}
+            <span *ngIf="i!==ditector.length-1">, </span>
+            </span>
+        </p>
+        <p>Актеры:
+            <span *ngFor="let actor of actors; let i=index">
+                {{actor.name}}
+                <span *ngIf="i!==actors.length-1">, </span>
+            </span>
+        </p>
+    </section>
+
+
+</article>

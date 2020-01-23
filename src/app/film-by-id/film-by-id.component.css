@@ -1,0 +1,18 @@
+article{
+    width: calc(830px + 300px + 0.5rem);
+    margin: 0 auto;
+    background-color: #2D4F72;
+    color: #d6d6cc;
+    /* box-shadow: 0rem 0rem 0.5rem #cccccc; */
+}
+
+iframe{
+    border: none;
+    margin-left: 0.5rem;
+}
+h2{
+    color: #fff;
+}
+header>p{
+    font-size: 0.9rem;
+}
