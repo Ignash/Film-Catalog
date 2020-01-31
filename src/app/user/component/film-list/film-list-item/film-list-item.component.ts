@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Film } from '../../model/film';
-import { FilmsService } from '../../films.service';
-import { map, take, tap } from 'rxjs/operators';
+import { Film } from '../../../../model/film';
+import { FilmsService } from '../../../services/films.service';
+import { map } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-film-item',
-  templateUrl: './film-item.component.html',
-  styleUrls: ['./film-item.component.css']
+  templateUrl: './film-list-item.component.html',
+  styleUrls: ['./film-list-item.component.css']
 })
 export class FilmItemComponent implements OnInit {
 

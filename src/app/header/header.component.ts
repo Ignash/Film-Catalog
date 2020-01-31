@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  links: object[] = [
+  links: any[] = [
     { path: '/main', label: 'Главная', active: 'button-active', icon: 'home'}, 
     { path: '/films', label: 'Все фильмы', active: 'button-active', icon: 'view_module'}
   ];

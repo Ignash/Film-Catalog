@@ -1,0 +1,57 @@
+form{
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: #ccc 1px dotted;
+}
+
+form h2{
+    margin-bottom: 0.7rem;
+}
+
+.form-control {
+    display: block;
+    color: #888;
+    margin-bottom: .8rem;
+}
+
+.btn{
+    display: inline-block;
+    background: #3494f3;
+    color: #FFF;
+    padding: 0.4rem 1.3rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: opacity 0.2s ease-in;
+    outline: none;
+}
+
+.btn:disabled{
+    background: #888;
+    cursor: not-allowed;
+}
+
+.btn:hover {
+    opacity: 0.8;
+  }
+
+  .form-control {
+    display: block;
+    color: #888;
+    margin-bottom: .8rem;
+  
+  }
+
+  /* .form-control .validation {
+    color: red;
+  } */
+
+  .invalid  small{
+    color: red;
+  }
+
+  .invalid input {
+    border-color: red;
+  }

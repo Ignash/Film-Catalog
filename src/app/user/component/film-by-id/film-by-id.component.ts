@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FilmsService } from '../films.service';
-import { Film } from '../model/film';
+import { FilmsService } from '../../services/films.service';
+import { Film } from '../../../model/film';
 import { map, tap } from 'rxjs/operators';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { forkJoin } from 'rxjs';
-import { PersonsFilm } from '../model/personsFilm';
+import { PersonsFilm } from '../../../model/personsFilm';
 
 @Component({
   selector: 'app-film-by-id',

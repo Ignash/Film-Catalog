@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
-import { FilmListComponent } from './film-list/film-list.component'
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { SelectComponent } from './select/select.component';
-import { FilmItemComponent } from './film-list/film-item/film-item.component';
-import { FilmByIdComponent } from './film-by-id/film-by-id.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectComponent } from './shared/component/select/select.component';
+import { FilmByIdComponent } from './user/component/film-by-id/film-by-id.component'
+import { FilmItemComponent } from './user/component/film-list/film-list-item/film-list-item.component';
+import { FilmListComponent } from './user/component/film-list/film-list.component';
+import { CreatPageComponent } from './admin/component/creat-page/creat-page.component';
+import { LoginPageComponent } from './admin/component/login-page/login-page.component';
+import { DashboardPageComponent } from './admin/component/dashboard-page/dashboard-page.component';
+import { EditPageComponent } from './admin/component/edit-page/edit-page.component';
+import { UserLoginComponent } from './user/component/user-login/user-login.component';
+import { UserCreateComponent } from './user/component/user-create/user-create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +26,12 @@ import { FilmByIdComponent } from './film-by-id/film-by-id.component'
     SelectComponent,
     FilmItemComponent,
     FilmByIdComponent,
+    CreatPageComponent,
+    LoginPageComponent,
+    DashboardPageComponent,
+    EditPageComponent,
+    UserLoginComponent,
+    UserCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +39,7 @@ import { FilmByIdComponent } from './film-by-id/film-by-id.component'
     MatIconModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,9 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
-import { Film } from '../model/film'
-import { FilmsService } from '../films.service';
+// import { Film } from '../model/film'
+// import { FilmsService } from '../films.service';
 import { Subject } from 'rxjs';
+import { Film } from 'src/app/model/film';
+import { FilmsService } from '../../services/films.service';
 
 @Component({
   selector: 'app-film-list',
