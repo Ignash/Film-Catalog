@@ -8,7 +8,5 @@ export class PersonsFilm {
         name: string
     }]
 
-    
-
     constructor(director, actors) {}
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-user-create',
@@ -9,7 +11,7 @@ import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms'
 export class UserCreateComponent implements OnInit {
   form: FormGroup;
 
-  constructor() { }
+  constructor( private userService: UserService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -23,7 +25,7 @@ export class UserCreateComponent implements OnInit {
         Validators.email
       ]),
 
-      matchingPassword: new FormGroup({
+      passwordGroup: new FormGroup({
         password: new FormControl(null, [
           Validators.required,
           Validators.minLength(6)
@@ -37,35 +39,28 @@ export class UserCreateComponent implements OnInit {
     })
   }
   submit(){
-    console.log(this.form.get('email'));
     if(this.form.invalid) return;
+    let { name, email } = this.form.value;
+    let password = this.form.value.passwordGroup.password;
+    let newUser: User = {
+      name: name,
+      email: email,
+      password: password
+    }
 
+    this.userService.registrationUser(newUser).subscribe((res)=>console.log(res));
 
   }
 
   passwordAreEqual(): ValidatorFn{
-    return (group: FormGroup): { [key: string]: any } => {
-    let val: string;
-    let valid = true;
-
-    for (const name in group.controls) {
-      if (val === undefined) {
-        val = group.controls[name].value
-      } else {
-        if (val !== group.controls[name].value){
-          valid = false;
-          break;
+      return (group: FormGroup): { [key: string]: any } => {
+        if(group.get('password').value === group.get('confirm_password').value) {
+          return null
         }
-      }
-    };
-
-    return valid ? null : {areEqual: true}
+      return {areEqual: true}
     }
   }
 
-  debug(){
-    console.log(this.form.get('matchingPassword').errors.areEqual);
-  }
 
 
 }
